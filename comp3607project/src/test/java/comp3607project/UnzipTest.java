@@ -12,31 +12,24 @@ import static org.junit.Assert.assertTrue;
 public class UnzipTest {
 
     @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
     public void testUnzipFile() throws IOException {
-        // Create a temporary zip file for testing
-        File zipFile = temporaryFolder.newFile("test.zip");
+        
+        File zipFile = testFolder.newFile("test.zip");
 
-        // Create some content to be zipped
-        // You can replace this with your own content
-        File file1 = temporaryFolder.newFile("file1.txt");
-        File file2 = temporaryFolder.newFile("file2.txt");
+        File file1 = testFolder.newFile("file1.txt");
+        File file2 = testFolder.newFile("file2.txt");
 
-        // Zip the files
-        ZipExampleTestUtil.createZipFile(zipFile, file1, file2);
+        ZipExampleTestUtil.createZip(zipFile, file1, file2);
 
-        // Create an instance of the UnZip class
         Unzip unZip = new Unzip();
 
-        // Define the destination directory for extraction
-        File destDirectory = temporaryFolder.newFolder("extracted");
+        File destDirectory = testFolder.newFolder("extracted");
 
-        // Perform the unzip operation
         unZip.unzipFile(zipFile.getAbsolutePath(), destDirectory.getAbsolutePath());
 
-        // Verify that the files were successfully extracted
         assertTrue(new File(destDirectory, "file1.txt").exists());
         assertTrue(new File(destDirectory, "file2.txt").exists());
     }

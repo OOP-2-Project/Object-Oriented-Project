@@ -1,0 +1,31 @@
+package comp3607project;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
+
+import java.io.File;
+import java.io.IOException;
+
+import static org.junit.Assert.*;
+
+public class PDFGeneratorTest {
+
+    @Rule
+    public TemporaryFolder testFolder = new TemporaryFolder();
+
+    @Test
+    public void testGeneratePdf() throws IOException {
+        
+        PDFGenerator pdfGenerator = new PDFGenerator();
+        
+        File pdfFile = testFolder.newFile("test.pdf");
+
+        String content = "Hello World";
+
+        pdfGenerator.generatePdf(pdfFile.getAbsolutePath(), content);
+
+        assertTrue(pdfFile.exists());
+        assertTrue(pdfFile.length() > 0); 
+    }
+}

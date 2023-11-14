@@ -9,9 +9,9 @@ import java.util.zip.ZipOutputStream;
 
 public class ZipExampleTestUtil {
 
-    public static void createZipFile(File zipFile, File... filesToZip) throws IOException {
-        try (FileOutputStream fos = new FileOutputStream(zipFile);
-             ZipOutputStream zipOut = new ZipOutputStream(fos)) {
+    public static void createZip(File zipFile, File... filesToZip) throws IOException {
+        try (FileOutputStream fin = new FileOutputStream(zipFile);
+             ZipOutputStream zipOut = new ZipOutputStream(fin)) {
 
             for (File fileToZip : filesToZip) {
                 addFileToZip(fileToZip, zipOut, "");
@@ -19,28 +19,26 @@ public class ZipExampleTestUtil {
         }
     }
 
-    private static void addFileToZip(File file, ZipOutputStream zipOut, String parentDir) throws IOException {
-        if (file.isDirectory()) {
-            String dir = parentDir + file.getName() + File.separator;
-            zipOut.putNextEntry(new ZipEntry(dir));
+    public static void addFileToZip(File file, ZipOutputStream zipOut, String parentDir) throws IOException {
+        FileInputStream fis = new FileInputStream(file);
+        String entryName = parentDir + file.getName();
+        ZipEntry zipEntry = new ZipEntry(entryName);
+        
+        try {
+            zipOut.putNextEntry(zipEntry);
 
-            File[] files = file.listFiles();
-            if (files != null) {
-                for (File fileInside : files) {
-                    addFileToZip(fileInside, zipOut, dir);
-                }
+            byte[] bytes = new byte[1024];
+            int length;
+            while ((length = fis.read(bytes)) >= 0) {
+                zipOut.write(bytes, 0, length);
             }
-        } else {
-            try (FileInputStream fis = new FileInputStream(file)) {
-                String entryName = parentDir + file.getName();
-                zipOut.putNextEntry(new ZipEntry(entryName));
 
-                byte[] buffer = new byte[1024];
-                int length;
-                while ((length = fis.read(buffer)) > 0) {
-                    zipOut.write(buffer, 0, length);
-                }
-            }
+            zipOut.closeEntry();
+        } finally {
+            fis.close();
         }
     }
+
 }
+        
+    
