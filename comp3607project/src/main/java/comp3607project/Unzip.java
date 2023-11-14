@@ -9,14 +9,7 @@ import java.util.zip.ZipInputStream;
 
 public class Unzip {
 
-    public static void main(String[] args) {
-        String zipPath = "C:\\Users\\surie\\OneDrive\\Desktop\\Comp3607_ProjectTest\\comp3607\\src\\ziptest.zip";
-        String destinationPath = "C:\\Users\\surie\\OneDrive\\Desktop\\Comp3607_ProjectTest\\comp3607\\uncompressedFiles";
-
-        unzipFile(zipPath, destinationPath);
-    }
-
-    public static void unzipFile(String zipPath, String destinationPath) {
+    public void unzipFile(String zipPath, String destinationPath) {
 
         File dir = new File(destinationPath);
 
