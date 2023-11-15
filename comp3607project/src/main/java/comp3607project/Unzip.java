@@ -9,33 +9,42 @@ import java.util.zip.ZipInputStream;
 
 public class Unzip {
 
-    public void unzipFile(String zipPath, String destinationPath) {
-
-        File dir = new File(destinationPath);
-
-        if (!dir.exists()) dir.mkdirs();
+    public static void unzipFile(String zipPath, String destinationPath) {
+        File destDir = new File(destinationPath);
+        if (!destDir.exists()) {
+            destDir.mkdirs();
+        }
 
         byte[] buffer = new byte[1024];
 
-        try (FileInputStream fileInputStream = new FileInputStream(zipPath);
-             ZipInputStream zipInputStream = new ZipInputStream(fileInputStream)) {
-
+        try (ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(zipPath))) {
             ZipEntry zipEntry = zipInputStream.getNextEntry();
 
             while (zipEntry != null) {
-                String fileName = zipEntry.getName();
-                File newFile = new File(destinationPath + File.separator + fileName);
+                String entryName = zipEntry.getName();
+                File entryFile = new File(destinationPath, entryName);
 
-                System.out.println("Unzipping to " + newFile.getAbsolutePath());
+                System.out.println("Unzipping to " + entryFile.getAbsolutePath());
 
-                new File(newFile.getParent()).mkdirs();
-                try (FileOutputStream fileOutputStream = new FileOutputStream(newFile)) {
-
-                    int len;
-
-                    while ((len = zipInputStream.read(buffer)) > 0) {
-                        fileOutputStream.write(buffer, 0, len);
+                if (zipEntry.isDirectory()) {
+                    entryFile.mkdirs();
+                } else {
+                    File parent = entryFile.getParentFile();
+                    if (!parent.exists()) {
+                        parent.mkdirs();
                     }
+
+                    try (FileOutputStream fos = new FileOutputStream(entryFile)) {
+                        int len;
+                        while ((len = zipInputStream.read(buffer)) > 0) {
+                            fos.write(buffer, 0, len);
+                        }
+                    }
+                }
+
+                zipInputStream.closeEntry();
+                if (entryName.toLowerCase().endsWith(".zip")) {
+                    unzipFile(entryFile.getAbsolutePath(), entryFile.getParent());
                 }
 
                 zipEntry = zipInputStream.getNextEntry();
@@ -44,6 +53,7 @@ public class Unzip {
             e.printStackTrace();
         }
     }
+
 }
 
         
