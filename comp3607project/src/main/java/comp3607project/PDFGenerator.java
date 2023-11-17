@@ -10,9 +10,9 @@ import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 import java.io.IOException;
 
 
-public class PDFGenerator {
+public class PDFGenerator implements PrintStrategy {
 
-    public void generatePdf(String filePath, String content) throws IOException {
+    public void generate(String filePath, String content) throws IOException {
         // Create a new document
         PDDocument document = new PDDocument();
 

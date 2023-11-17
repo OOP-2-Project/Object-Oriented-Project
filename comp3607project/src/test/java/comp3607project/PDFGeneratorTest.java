@@ -23,7 +23,7 @@ public class PDFGeneratorTest {
 
         String content = "Hello World";
 
-        pdfGenerator.generatePdf(pdfFile.getAbsolutePath(), content);
+        pdfGenerator.generate(pdfFile.getAbsolutePath(), content);
 
         assertTrue(pdfFile.exists());
         assertTrue(pdfFile.length() > 0); 
