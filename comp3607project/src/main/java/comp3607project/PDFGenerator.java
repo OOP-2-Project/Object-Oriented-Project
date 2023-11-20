@@ -9,14 +9,16 @@ import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
 import java.io.IOException;
 
-
+/** 
+ * Uses the PrintStrategy strategy interface and overides the method to print to a PDF
+ */
 public class PDFGenerator implements PrintStrategy {
 
     
     /** 
-     * @param filePath
-     * @param content
-     * @throws IOException
+     * @param filePath The file path of the PDF file that will store the results
+     * @param content A string variable holding all the text to be saved
+     * @throws IOException Signals that an I/O exception of some sort has occurred. This class is the general class of exceptions produced by failed or interrupted I/O operations.
      */
     public void generate(String filePath, String content) throws IOException {
         // Create a new document
