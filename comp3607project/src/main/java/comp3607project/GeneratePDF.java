@@ -7,7 +7,11 @@ public class GeneratePDF {
     private PDFGenerator pdfGenerator;
 
     public GeneratePDF(String filePath, String content) throws IOException{
-        pdfGenerator.generate(filePath, content);;
+        
     }
-    
+
+    public void printBreakdown() throws IOException{
+        pdfGenerator.generate(null, null);;
+    }
+
 }

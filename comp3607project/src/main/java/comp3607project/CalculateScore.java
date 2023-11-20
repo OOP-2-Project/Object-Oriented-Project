@@ -7,7 +7,11 @@ public class CalculateScore {
     private Breakdown breakdown;
 
     public CalculateScore(String filePath, String content) throws IOException{
-        breakdown.generate(filePath, content);;
+        
     }
-    
+
+    public void printBreakdown() throws IOException{
+        breakdown.generate(null, null);;
+    }
+
 }
