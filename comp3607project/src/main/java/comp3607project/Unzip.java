@@ -7,8 +7,18 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+/**
+ * Unzips files from a folder given the folder's directory 
+ * and stores an unzipped version to another folder given its directory
+ */
 public class Unzip {
 
+    
+    
+    /** 
+     * @param zipPath File path for the folder containing the zip files
+     * @param destinationPath The file path for the folder that will store the unzipped files
+     */
     public static void unzipFile(String zipPath, String destinationPath) {
         File destDir = new File(destinationPath);
         if (!destDir.exists()) {

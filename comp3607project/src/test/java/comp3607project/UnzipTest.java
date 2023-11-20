@@ -14,6 +14,10 @@ public class UnzipTest {
     @Rule
     public TemporaryFolder testFolder = new TemporaryFolder();
 
+    
+    /** 
+     * @throws IOException
+     */
     @Test
     public void testUnzipFile() throws IOException {
         

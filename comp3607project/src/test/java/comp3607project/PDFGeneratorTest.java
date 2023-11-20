@@ -14,6 +14,10 @@ public class PDFGeneratorTest {
     @Rule
     public TemporaryFolder testFolder = new TemporaryFolder();
 
+    
+    /** 
+     * @throws IOException
+     */
     @Test
     public void testGeneratePdf() throws IOException {
         

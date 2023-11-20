@@ -6,6 +6,12 @@ import java.io.IOException;
 
 public class Breakdown implements PrintStrategy {
 
+    
+    /** 
+     * @param filePath
+     * @param content
+     * @throws IOException
+     */
     @Override
     public void generate(String filePath, String content) throws IOException {
         // Writing content to a text file

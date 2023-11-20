@@ -10,6 +10,10 @@ public class CalculateScore {
         
     }
 
+    
+    /** 
+     * @throws IOException
+     */
     public void printBreakdown() throws IOException{
         breakdown.generate(null, null);;
     }

@@ -8,6 +8,10 @@ public abstract class Evaluator {
     private GeneratePDF pdfgeneration;
     private CalculateScore scoreGen;
 
+    
+    /** 
+     * @throws IOException
+     */
     public void evaluate() throws IOException{
 
         this.printBreakdown();
