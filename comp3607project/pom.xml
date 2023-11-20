@@ -85,6 +85,15 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>1.6.0</version> <!-- Use the latest version -->
+            <configuration>
+                <source>17.0.8.1</source> <!-- Set your Java version -->
+                <failOnError>false</failOnError> <!-- Set to true if you want the build to fail on errors in the JavaDoc -->
+            </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>

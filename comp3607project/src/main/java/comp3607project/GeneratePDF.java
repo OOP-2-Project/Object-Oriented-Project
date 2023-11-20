@@ -10,6 +10,10 @@ public class GeneratePDF {
         
     }
 
+    
+    /** 
+     * @throws IOException
+     */
     public void printBreakdown() throws IOException{
         pdfGenerator.generate(null, null);;
     }
