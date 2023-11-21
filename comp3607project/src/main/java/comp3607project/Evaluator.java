@@ -1,31 +1,31 @@
 package comp3607project;
 
+
 import java.io.IOException;
-import java.util.ArrayList;
 
 public abstract class Evaluator {
 
-    private GeneratePDF pdfgeneration;
-    private CalculateScore scoreGen;
+    private String filepath;
+    private String Content;
 
-    public void evaluate() throws IOException{
+    public Evaluator(String filepath, String Content){
+        this.Content = Content;
+        this.filepath = filepath;
+    }
 
-        this.printBreakdown();
-        this.runTest();
+    //protected String content = " ";
+
+    public final void evaluate(Class<?>[] fileName) throws IOException{
+
+        Content = this.runTest(fileName);
+        this.printBreakdown(filepath, Content);
 
     }  
     
-    public ArrayList<Integer> runTest(){
-
-        ArrayList<Integer> scores = new ArrayList<>();
-
-        return scores;
-    }
+    public abstract String runTest(Class<?>[] fileName);
     
-    public void printBreakdown() throws IOException{
+    public abstract void printBreakdown(String filepath, String Content) throws IOException;
         
-        pdfgeneration.printBreakdown();
-        scoreGen.printBreakdown();
-    }
-
+       
 }
+

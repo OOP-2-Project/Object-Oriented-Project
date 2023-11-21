@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class Unzip {
 
-    public static void unzipFile(String zipPath, String destinationPath) {
+    public static List<String> unzipFile(String zipPath, String destinationPath) {
+        List<String> unzippedFileNames = new ArrayList<>();
         File destDir = new File(destinationPath);
         if (!destDir.exists()) {
             destDir.mkdirs();
@@ -25,6 +28,10 @@ public class Unzip {
                 File entryFile = new File(destinationPath, entryName);
 
                 System.out.println("Unzipping to " + entryFile.getAbsolutePath());
+
+                String fileName = entryName.substring(entryName.lastIndexOf("/") + 1);
+
+                unzippedFileNames.add(fileName);
 
                 if (zipEntry.isDirectory()) {
                     entryFile.mkdirs();
@@ -52,6 +59,9 @@ public class Unzip {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return unzippedFileNames;
+
     }
 
 }

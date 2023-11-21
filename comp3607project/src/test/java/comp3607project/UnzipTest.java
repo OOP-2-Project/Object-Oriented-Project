@@ -24,13 +24,17 @@ public class UnzipTest {
 
         ZipExampleTestUtil.createZip(zipFile, file1, file2);
 
-        Unzip unZip = new Unzip();
+        //Unzip unZip = new Unzip();
 
         File destDirectory = testFolder.newFolder("extracted");
+        
+        Unzip.unzipFile(zipFile.getAbsolutePath(), destDirectory.getAbsolutePath());
 
-        unZip.unzipFile(zipFile.getAbsolutePath(), destDirectory.getAbsolutePath());
+
 
         assertTrue(new File(destDirectory, "file1.txt").exists());
         assertTrue(new File(destDirectory, "file2.txt").exists());
+
+
     }
 }
