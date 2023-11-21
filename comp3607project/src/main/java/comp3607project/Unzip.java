@@ -15,7 +15,7 @@ import java.util.zip.ZipInputStream;
  */
 public class Unzip {
 
-    public static List<String> unzipFile(String zipPath, String destinationPath) {
+    public static void unzipFile(String zipPath, String destinationPath) {
         List<String> unzippedFileNames = new ArrayList<>();
         File destDir = new File(destinationPath);
         if (!destDir.exists()) {
@@ -63,8 +63,6 @@ public class Unzip {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return unzippedFileNames;
 
     }
 
