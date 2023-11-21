@@ -38,7 +38,6 @@
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.13.2</version> <!-- Use the latest version available -->
-        <scope>test</scope>
     </dependency>
 
   </dependencies>
