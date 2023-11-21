@@ -11,7 +11,7 @@ public class App {
 
         Unzip.unzipFile("comp3607project\\src\\main\\java\\comp3607project\\816032732_Assignment#2.zip", "comp3607project\\src\\main\\java\\comp3607project");
 
-        String folderPath = "C:\\Users\\mbabz\\Desktop\\Object-Oriented-Project\\comp3607project\\src\\main\\java\\comp3607project\\816032732_Assignment#2";
+        String folderPath = "comp3607project\\src\\main\\java\\comp3607project\\816032732_Assignment#2";
         FileCollection fileCollection = new FileCollection (folderPath);
         fileCollection.createIterator(folderPath);
 
