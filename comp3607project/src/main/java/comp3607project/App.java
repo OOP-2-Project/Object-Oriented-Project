@@ -22,6 +22,7 @@ public class App {
             System.out.println("Unzipped file: " + fileName);
         }
 
+        /* 
         Class<?>[] classes = convertToClasses(filteredFiles);
 
         ArrayList<Evaluator> evaluators = new ArrayList<>();
@@ -30,9 +31,10 @@ public class App {
         for (Evaluator evaluator : evaluators) {
             evaluator.evaluate(classes);
         }
+        */
     }
 
-    private static Class<?>[] convertToClasses(List<String> classNames) {
+ /*   private static Class<?>[] convertToClasses(List<String> classNames) {
       Class<?>[] classes = new Class<?>[classNames.size()];
   
       for (int i = 0; i < classNames.size(); i++) {
@@ -47,5 +49,7 @@ public class App {
   
       return classes;
   }
+*/
+
 
 }
