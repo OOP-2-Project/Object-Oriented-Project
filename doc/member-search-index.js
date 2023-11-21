@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"comp3607project","c":"PrintStrategy","l":"generate(String, String)","u":"generate(java.lang.String,java.lang.String)"}];updateSearchResults();
+memberSearchIndex = [{"p":"comp3607project","c":"InterfaceIterator","l":"hasNext()"},{"p":"comp3607project","c":"InterfaceIterator","l":"next()"}];updateSearchResults();

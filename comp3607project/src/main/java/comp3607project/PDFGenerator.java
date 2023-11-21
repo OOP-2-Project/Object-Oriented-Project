@@ -12,7 +12,7 @@ import java.io.IOException;
 /** 
  * Uses the PrintStrategy strategy interface and overides the method to print to a PDF
  */
-public class PDFGenerator implements PrintStrategy {
+public class PDFGenerator implements PrintStrategy{
 
     
     /** 
