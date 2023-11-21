@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileIterator implements InterfaceIterator{
-        private static int index;
+    private int index;
     private List <File> files;
     private String[] studentFiles;
     private File folder;

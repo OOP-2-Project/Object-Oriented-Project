@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FileCollection implements InterfaceAggregate{
     
-    private String folderpath;
+    public String folderpath;
     private ArrayList <File> files; 
 
     public FileCollection (String folderpath){
