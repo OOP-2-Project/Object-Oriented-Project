@@ -9,6 +9,12 @@ import java.util.zip.ZipOutputStream;
 
 public class ZipExampleTestUtil {
 
+    
+    /** 
+     * @param zipFile
+     * @param filesToZip
+     * @throws IOException
+     */
     public static void createZip(File zipFile, File... filesToZip) throws IOException {
         try (FileOutputStream fin = new FileOutputStream(zipFile);
              ZipOutputStream zipOut = new ZipOutputStream(fin)) {

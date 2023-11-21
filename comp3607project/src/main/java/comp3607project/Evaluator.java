@@ -15,7 +15,7 @@ public abstract class Evaluator {
 
     //protected String content = " ";
 
-    public final void evaluate(Class<?>[] fileName) throws IOException{
+    public void evaluate() throws IOException{
 
         Content = this.runTest(fileName);
         this.printBreakdown(filepath, Content);

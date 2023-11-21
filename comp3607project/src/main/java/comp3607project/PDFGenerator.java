@@ -12,6 +12,12 @@ import java.io.IOException;
 
 public class PDFGenerator implements PrintStrategy {
 
+    
+    /** 
+     * @param filePath
+     * @param content
+     * @throws IOException
+     */
     public void generate(String filePath, String content) throws IOException {
         // Create a new document
         PDDocument document = new PDDocument();

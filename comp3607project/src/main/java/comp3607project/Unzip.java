@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+/**
+ * Unzips files from a folder given the folder's directory 
+ * and stores an unzipped version to another folder given its directory
+ */
 public class Unzip {
 
     public static List<String> unzipFile(String zipPath, String destinationPath) {
