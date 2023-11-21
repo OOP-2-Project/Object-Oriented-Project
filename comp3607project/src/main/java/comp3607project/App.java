@@ -25,20 +25,4 @@ public class App {
         // }
     }
 
-    // private static Class<?>[] convertToClasses(List<String> classNames) {
-    //   Class<?>[] classes = new Class<?>[classNames.size()];
-  
-    //   for (int i = 0; i < classNames.size(); i++) {
-    //       try {
-    //           String className = classNames.get(i);
-    //           // If the classes are in the default package, do not prepend the package name
-    //           classes[i] = Class.forName(className);
-    //       } catch (ClassNotFoundException e) {
-    //           e.printStackTrace();
-    //       }
-    //   }
-  
-    //   return classes;
-   //}
-
 }
