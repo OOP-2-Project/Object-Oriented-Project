@@ -14,6 +14,7 @@ public class CalculateScore extends Evaluator {
 
     public CalculateScore(String filepath, String Content) {
         super(filepath, Content);
+        this.breakdown = new Breakdown();
     }
 
     private Breakdown breakdown;
@@ -22,7 +23,7 @@ public class CalculateScore extends Evaluator {
 
     @Override
     public void printBreakdown(String filepath, String Content) throws IOException {
-        breakdown.generate(null, null);;
+        breakdown.generate("comp3607project\\src\\main\\java\\comp3607project\\816032732_Assignment#2", Content);;
     }
 
     @Override
@@ -59,6 +60,7 @@ public class CalculateScore extends Evaluator {
             e.printStackTrace();
         }
         testResults = testResults.replace("\n", "<br>");
+        testResults = testResults.replace("\t", " "); 
         System.out.println(testResults);
         return testResults;
     }

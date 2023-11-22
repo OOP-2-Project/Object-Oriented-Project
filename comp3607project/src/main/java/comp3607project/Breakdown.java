@@ -14,11 +14,16 @@ public class Breakdown implements PrintStrategy {
      */
     @Override
     public void generate(String filePath, String content) throws IOException {
+        // Check if filePath is null
+        if (filePath == null) {
+            throw new IllegalArgumentException("File path cannot be null");
+        }
+    
         // Writing content to a text file
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(content);
         }
-
+    
         // Printing content to the console
         System.out.println("Content:\n" + content);
     }

@@ -74,6 +74,8 @@ public class GeneratePDF extends Evaluator {
             e.printStackTrace();
         }
         testResults = testResults.replace("\n", "<br>");
+        testResults = testResults.replace("\t", " "); 
+        testResults = testResults.replace("\r", " "); 
         System.out.println(testResults);
         return testResults;
     }
