@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FileIterator implements InterfaceIterator {
     private int index;
-    private List<File> files;
+    public ArrayList<File> files;
     private String[] studentFiles;
     private File folder;
 
@@ -26,7 +26,7 @@ public class FileIterator implements InterfaceIterator {
         while (this.hasNext()) {
             File nextFile = new File(folder, studentFiles[index]);
 
-            if (endsWith(".class", nextFile)) {
+            if (endsWith("Test.class", nextFile)) {
                 files.add(nextFile);
                 System.out.println("\n" + "Added Files: " + nextFile.getName());
             }
