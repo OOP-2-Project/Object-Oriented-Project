@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 public class FileCollection implements InterfaceAggregate{
     
-    private String folderpath;
-    private ArrayList <File> files; 
+   // private String folderpath;
+    public ArrayList <File> files; 
 
     public FileCollection (String folderpath){
-        this.files = new ArrayList<File>();
-        this.folderpath = folderpath;
+        FileIterator fileIterator = new FileIterator(folderpath);
+        this.files = fileIterator.files;
+       // this.folderpath = folderpath;
     }
     
     public void addFile(File file){

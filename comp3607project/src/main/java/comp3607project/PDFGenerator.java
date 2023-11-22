@@ -31,12 +31,14 @@ public class PDFGenerator implements PrintStrategy{
 
             // Create a new content stream for the page
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
+                        // Specify a different font if needed
+            // Specify a different font if needed
 
             // Set font and font size
-            contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA_BOLD), 12);
+            contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA_BOLD), 10);
 
             // Set position for the text on the page
-            float x = 100;
+            float x = 20;
             float y = page.getMediaBox().getHeight() - 100;
 
             // Add text to the page

@@ -1,7 +1,9 @@
 package comp3607project;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public abstract class Evaluator {
 
@@ -13,16 +15,16 @@ public abstract class Evaluator {
         this.filepath = filepath;
     }
 
-    //protected String content = " ";
 
-    public final void evaluate(Class<?>[] fileName) throws IOException{
+    public final void evaluate(List<File> fileName) throws IOException{
 
-        Content = this.runTest(fileName);
+       Content = runTest(fileName);
+        Content = Content + " ";
         this.printBreakdown(filepath, Content);
 
     }  
     
-    public abstract String runTest(Class<?>[] fileName);
+    public abstract String runTest(List<File> fileName);
     
     public abstract void printBreakdown(String filepath, String Content) throws IOException;
         
