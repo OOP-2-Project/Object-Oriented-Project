@@ -23,7 +23,7 @@ public class App {
          evaluators.add(new CalculateScore("comp3607project\\src\\main\\java\\comp3607project", "yes"));
 
          for (Evaluator evaluator : evaluators) {
-             evaluator.evaluate(fileCollection.files);
+             evaluator.evaluate(fileCollection.files)
          }
     }
 
