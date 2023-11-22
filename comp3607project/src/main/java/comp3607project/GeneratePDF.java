@@ -46,7 +46,7 @@ public class GeneratePDF extends Evaluator {
             for (File file : fileName) {
                 String className = file.getName().replace(".class", "");
     
-                System.out.println("Running tests for class: " + className);
+                System.out.println("\nRunning tests for class: " + className);
     
                 // Load the class from the classpath
                 Class<?> dynamicClass = Class.forName("comp3607project.816032732_Assignment#2." + className);
@@ -54,17 +54,17 @@ public class GeneratePDF extends Evaluator {
                 Result result = JUnitCore.runClasses(dynamicClass);
     
                 for (Failure failure : result.getFailures()) {
-                    String resultMessage = "Test Failed: " + failure.getDescription() +
-                            " Exception: " + failure.getTrace() +
+                    String resultMessage = "\nTest Failed: " + failure.getDescription() +
+                            " \nException: " + failure.getTrace() +
                             " ----------";
                     testResults = testResults + resultMessage;
                 }
     
-                String summary = "Summary: " +
-                        " Tests run: " + result.getRunCount() +
-                        " Tests passed: " + (result.getRunCount() - result.getFailureCount()) +
-                        " Tests failed: " + result.getFailureCount() +
-                        " All tests passed: " + result.wasSuccessful();
+                String summary = "\nSummary: " +
+                        " \nTests run: " + result.getRunCount() +
+                        " \nTests passed: " + (result.getRunCount() - result.getFailureCount()) +
+                        " \nTests failed: " + result.getFailureCount() +
+                        " \nAll tests passed: " + result.wasSuccessful();
                 testResults = testResults + summary + " ";
             }
     
@@ -73,7 +73,7 @@ public class GeneratePDF extends Evaluator {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        testResults = testResults.replace("\n", "<br>");
+       // testResults = testResults.replace("\n", "<br>");
         testResults = testResults.replace("\t", " "); 
         testResults = testResults.replace("\r", " "); 
         System.out.println(testResults);
