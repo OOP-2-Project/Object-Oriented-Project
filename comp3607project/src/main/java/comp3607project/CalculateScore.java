@@ -46,7 +46,7 @@ public class CalculateScore extends Evaluator {
     
                 Result result = JUnitCore.runClasses(dynamicClass);
     
-                String summary = "Summary For Text File: " +
+                String summary = "\nSummary For Text File: " +
                         " Tests run: " + result.getRunCount() +
                         " Tests passed: " + (result.getRunCount() - result.getFailureCount()) +
                         " Tests failed: " + result.getFailureCount() +
@@ -59,8 +59,8 @@ public class CalculateScore extends Evaluator {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        testResults = testResults.replace("\n", "<br>");
-        testResults = testResults.replace("\t", " "); 
+        //testResults = testResults.replace("\n", "<br>");
+        //testResults = testResults.replace("\t", " "); 
         System.out.println(testResults);
         return testResults;
     }

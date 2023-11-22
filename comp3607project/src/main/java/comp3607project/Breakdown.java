@@ -20,7 +20,7 @@ public class Breakdown implements PrintStrategy {
         }
     
         // Writing content to a text file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("comp3607project\\src\\main\\java\\comp3607project"))) {
             writer.write(content);
         }
     
